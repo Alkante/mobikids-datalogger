@@ -1,7 +1,7 @@
 #/***************************************************************************
 # LoggerFileReader
 #
-# AstrollenDro data logger file reader
+# Mobikids data logger file reader
 #							 -------------------
 #		begin				: 2015-09-07
 #		git sha				: $Format:%H$

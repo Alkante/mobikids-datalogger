@@ -3,7 +3,7 @@
 /***************************************************************************
  LoggerFileReader
                                  A QGIS plugin
- AstrollenDro data logger file reader
+ Mobikids data logger file reader
                               -------------------
         begin                : 2015-09-07
         git sha              : $Format:%H$
@@ -20,15 +20,17 @@
  *                                                                         *
  ***************************************************************************/
 """
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from qgis.PyQt.QtCore import *
+from qgis.PyQt.QtGui import *
+from qgis.PyQt.QtWidgets import *
+
 from qgis.core import *
 # Initialize Qt resources from file resources.py
-import resources
+from .resources import *
 # Import the code for the dialog
-from loggerFile_reader_dialog import LoggerFileReaderDialog
+from .loggerFile_reader_dialog import LoggerFileReaderDialog
 import os.path
-from dataFileParser import *
+from .dataFileParser import *
 
 class LoggerFileReader:
     """QGIS Plugin Implementation."""
@@ -64,7 +66,7 @@ class LoggerFileReader:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&AstrollenDro Logger File Reader')
+        self.menu = self.tr(u'&Mobikids Logger File Reader')
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'LoggerFileReader')
         self.toolbar.setObjectName(u'LoggerFileReader')
@@ -169,7 +171,7 @@ class LoggerFileReader:
         icon_path = ':/plugins/LoggerFileReader/icon.png'
         self.add_action(
             icon_path,
-            text=self.tr(u'AstrollenDro file reader'),
+            text=self.tr(u'Mobikids file reader'),
             callback=self.run,
             parent=self.iface.mainWindow())
 
@@ -178,7 +180,7 @@ class LoggerFileReader:
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
             self.iface.removePluginMenu(
-                self.tr(u'&AstrollenDro Logger File Reader'),
+                self.tr(u'&Mobikids Logger File Reader'),
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
@@ -218,7 +220,7 @@ class LoggerFileReader:
                 self.loadToCanvas(gpsFileName, basename, outDir)
             if e_gps_csv and (e_gps_kml or e_gps_shp):
                 self.convertToShpKml(basename, outDir, e_gps_shp, e_gps_kml)
-            QMessageBox.information(self.dlg, u'AstrollenDro Logger File Reader', u'Fichier traité')
+            QMessageBox.information(self.dlg, u'Mobikids Logger File Reader', u'Fichier traité')
 
             pass
 
@@ -239,7 +241,7 @@ class LoggerFileReader:
         self.dlg.inDataFilePath.clear()
         fileDialog = QFileDialog()
         fileDialog.setConfirmOverwrite(False)
-        outName = fileDialog.getOpenFileName(self.dlg, "Input data file",".", "Astrollendro DataLogger File (*.dat)")
+        outName = fileDialog.getOpenFileName(self.dlg, "Input data file",".", "Mobikids DataLogger File (*.dat)")
         outPath = QFileInfo(outName).absoluteFilePath()
         if outName:
             self.dlg.inDataFilePath.clear()

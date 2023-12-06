@@ -14,7 +14,7 @@ __copyright__ = 'Copyright 2015, Alkante'
 
 import unittest
 
-from PyQt4.QtGui import QDialogButtonBox, QDialog
+from qgis.PyQt.QtGui import QDialogButtonBox, QDialog
 
 from loggerFile_reader_dialog import LoggerFileReaderDialog
 

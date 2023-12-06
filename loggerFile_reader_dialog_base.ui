@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AstrollenDro Logger File Reader</string>
+   <string>Mobikids Logger File Reader</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

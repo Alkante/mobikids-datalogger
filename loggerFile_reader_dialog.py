@@ -3,7 +3,7 @@
 /***************************************************************************
  LoggerFileReaderDialog
                                  A QGIS plugin
- AstrollenDro data logger file reader
+ Mobikids data logger file reader
                              -------------------
         begin                : 2015-09-07
         git sha              : $Format:%H$
@@ -23,13 +23,13 @@
 
 import os
 
-from PyQt4 import QtGui, uic
+from qgis.PyQt import QtGui, uic, QtWidgets
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'loggerFile_reader_dialog_base.ui'))
 
 
-class LoggerFileReaderDialog(QtGui.QDialog, FORM_CLASS):
+class LoggerFileReaderDialog(QtWidgets.QDialog, FORM_CLASS):
     def __init__(self, parent=None):
         """Constructor."""
         super(LoggerFileReaderDialog, self).__init__(parent)

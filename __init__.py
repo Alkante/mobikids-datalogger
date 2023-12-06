@@ -3,7 +3,7 @@
 /***************************************************************************
  LoggerFileReader
                                  A QGIS plugin
- AstrollenDro data logger file reader
+ Mobikids data logger file reader
                              -------------------
         begin                : 2015-09-07
         copyright            : (C) 2015 by Alkante

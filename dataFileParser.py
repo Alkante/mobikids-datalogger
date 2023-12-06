@@ -29,7 +29,7 @@ class DataFileParser:
     def log(self, msg, level=2):
         if level<=self.logLevel:
             if self.logType=='console':
-                print time.strftime("%d/%m/%Y %H:%M:%S") + ' : ' + msg
+                print(time.strftime("%d/%m/%Y %H:%M:%S") + ' : ' + msg)
             else:
                 self.msg.append(msg)
 
@@ -170,7 +170,7 @@ class DataFileParser:
             if withHeader:
                 writer.writerow(header)
             for i in range(len(ts)):
-                #print tramesAcc[i]
+                #print(tramesAcc[i])
                 tMag = self.decodeTrameAMG(ts[i],i,start,freq)
                 writer.writerow(tMag[0:6])
         csvfile.close()
